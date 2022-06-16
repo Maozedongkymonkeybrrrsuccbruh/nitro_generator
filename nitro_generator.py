@@ -16,6 +16,11 @@ def generateRandomString(length):
 while time.time() < END:
 	code = generateRandomString(16)
 	url =  f"https://discordapp.com/api/v9/entitlements/gift-codes/{code}?with_application=false&with_subscription_plan=true"
-	r = requests.get(url)
+	while 1:
+		try:
+			r = requests.get(url)
+			break
+		except:
+			continue
 	if r.status_code == 200:
 		print(f"Valid nitro: {code}")
