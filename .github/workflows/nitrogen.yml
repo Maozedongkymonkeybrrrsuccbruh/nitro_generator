@@ -1,5 +1,5 @@
 name: Discord Nitro Generator
-on: [push]
+on: [push, workflow_dispatch]
 jobs:
   Generate_Nitro:
     runs-on: ubuntu-latest
