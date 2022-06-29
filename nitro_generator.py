@@ -13,6 +13,8 @@ def generateRandomString(length):
 	for i in range(length):
 		result += random.choice(ALPHA_NUM)
 	return result
+tested = 0
+valid = 0
 while time.time() < END:
 	code = generateRandomString(16)
 	url =  f"https://discordapp.com/api/v9/entitlements/gift-codes/{code}?with_application=false&with_subscription_plan=true"
@@ -24,3 +26,6 @@ while time.time() < END:
 			continue
 	if r.status_code == 200:
 		print(f"Valid nitro: {code}")
+		valid += 1
+	tested += 1
+print(f"the program tested {tested} codes. {valid} of them are valid")
