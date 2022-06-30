@@ -7,7 +7,7 @@ os.system("pip install requests")
 import requests
 
 ALPHA_NUM = string.ascii_uppercase + string.digits + string.ascii_lowercase
-END = time.time() + 3600 * 3
+END = time.time() + 3600 * 5
 def generateRandomString(length):
 	result = ''
 	for i in range(length):
