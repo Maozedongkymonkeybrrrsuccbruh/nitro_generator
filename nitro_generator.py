@@ -3,11 +3,11 @@ import time
 import random
 import os
 
-os.system("pip install requests")
+os.system("pip install requests > /dev/null")
 import requests
 
 ALPHA_NUM = string.ascii_uppercase + string.digits + string.ascii_lowercase
-END = time.time() + 3600 * 5
+END = time.time() + 3600 * 6 - 30
 def generateRandomString(length):
 	result = ''
 	for i in range(length):
