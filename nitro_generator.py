@@ -3,7 +3,7 @@ import time
 import random
 import os
 
-os.system("pip install requests > /dev/null")
+os.system("pip install requests")
 import requests
 
 ALPHA_NUM = string.ascii_uppercase + string.digits + string.ascii_lowercase
@@ -15,6 +15,7 @@ def generateRandomString(length):
 	return result
 tested = 0
 valid = 0
+valid_codes = []
 while time.time() < END:
 	code = generateRandomString(16)
 	url =  f"https://discordapp.com/api/v9/entitlements/gift-codes/{code}?with_application=false&with_subscription_plan=true"
@@ -25,7 +26,14 @@ while time.time() < END:
 		except:
 			continue
 	if r.status_code == 200:
-		print(f"Valid nitro: {code}")
+		valid_code.append(url)
+		print(f'[{tested+1}th code] (VALID) {url}')
+		continue
 		valid += 1
+	print(f'[{tested+1}th code] (INVALID) {url}')
 	tested += 1
 print(f"the program tested {tested} codes. {valid} of them are valid")
+if valid_codes != []:
+	print("the valid codes are:")
+	for code in valid_codes:
+		print(code)
