@@ -14,7 +14,6 @@ def generateRandomString(length):
 		result += random.choice(ALPHA_NUM)
 	return result
 tested = 0
-valid = 0
 valid_codes = []
 while time.time() < END:
 	code = generateRandomString(16)
@@ -29,10 +28,9 @@ while time.time() < END:
 		valid_code.append(url)
 		print(f'[{tested+1}th code] (VALID) {url}')
 		continue
-		valid += 1
 	print(f'[{tested+1}th code] (INVALID) {url}')
 	tested += 1
-print(f"the program tested {tested} codes. {valid} of them are valid")
+print(f"the program tested {tested} codes. {len(valid_codes)} of them are valid")
 if valid_codes != []:
 	print("the valid codes are:")
 	for code in valid_codes:
